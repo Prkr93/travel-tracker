@@ -35,8 +35,15 @@ describe('Traveler', function() {
 
   it('should be able to store an array of trips', () => {
     expect(traveler1.trips).to.be.an('array');
-    expect(traveler1.trips[0]).to.be.an.instanceof(Trip);
   });
+
+  it.skip('should have only trips that are for the specific traveler', () => {
+    expect(traveler1.trips[0]).to.be.an.instanceof(Trip);
+    expect(traveler1.trips[0].userID).to.eql(1);
+    expect(traveler1.trips[1].userID).to.eql(1);
+    expect(traveler2.trips[0].userID).to.eql(2);
+    expect(traveler2.trips[1].userID).to.eql(2);
+  })
 
   it.skip('should be able to return the total $ amount spent on trips', () => {
 
