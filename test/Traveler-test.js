@@ -1,7 +1,8 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Traveler from '../src/js/Traveler';
-import { travelerTestData, tripTestData } from '../src/data/traveler-test-data';
+import travelerTestData from '../src/data/traveler-test-data';
+import tripTestData from '../src/data/traveler-test-data';
 
 
 describe('Traveler', function() {
@@ -37,8 +38,7 @@ describe('Traveler', function() {
     expect(traveler1.trips).to.be.an('array');
   });
 
-  it.skip('should have only trips that are for the specific traveler', () => {
-    expect(traveler1.trips[0]).to.be.an.instanceof(Trip);
+  it('should have only trips that are for the specific traveler', () => {
     expect(traveler1.trips[0].userID).to.eql(1);
     expect(traveler1.trips[1].userID).to.eql(1);
     expect(traveler2.trips[0].userID).to.eql(2);

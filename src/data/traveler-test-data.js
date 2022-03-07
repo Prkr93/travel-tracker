@@ -13,4 +13,4 @@ const travelerTestData = [
 
 
 
-export { travelerTestData };
+export default travelerTestData;
