@@ -3,13 +3,17 @@ const expect = chai.expect;
 import Traveler from '../src/js/Traveler';
 import travelerTestData from '../src/data/traveler-test-data';
 import tripTestData from '../src/data/traveler-test-data';
+import DestinationRepository from '../src/js/DestinationRepository';
+import destinationTestData from '../src/data/destination-test-data';
 
 
 describe('Traveler', function() {
   let traveler1;
   let traveler2;
+  let destinationRepository;
 
   beforeEach(() => {
+    destinationRepository = new DestinationRepository(destinationTestData);
     traveler1 = new Traveler(travelerTestData[0]);
     traveler2 = new Traveler(travelerTestData[1]);
   });
@@ -45,8 +49,9 @@ describe('Traveler', function() {
     expect(traveler2.trips[1].userID).to.eql(2);
   })
 
-  it.skip('should be able to return the total $ amount spent on trips', () => {
-
+  it('should be able to return the total $ amount spent on trips', () => {
+    expect(traveler1.getYearlyAmountSpent('2022', destinationRepository)).to.eql(7667);
+    expect(traveler2.getYearlyAmountSpent('2022', destinationRepository)).to.eql(9086);
   });
 
 });

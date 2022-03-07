@@ -55,6 +55,16 @@ describe('TravelerRepository', function() {
         duration: 17,
         status: "approved",
         suggestedActivities: [ ]
+      },
+      {
+        id: 5,
+        userID: 1,
+        destinationID: 2,
+        travelers: 4,
+        date: "2021/02/25",
+        duration: 13,
+        status: "approved",
+        suggestedActivities: [ ]
       }
     ]);
     expect(traveler2.trips).to.eql([
