@@ -27,14 +27,14 @@ const displayTripArticles = (user, destinations) => {
   let travelerPastTrips = user.trips.filter(trip => trip.date <= today);
   let travelerUpcomingTrips = user.trips.filter(trip => trip.date >= today && trip.status === 'approved');
   let travelerPendingTrips = user.trips.filter(trip => trip.date >= today && trip.status === 'pending');
-  
+
   if (!travelerPastTrips.length) {
     pastTrips.innerHTML += 'You don\'t have any past trips yet!'
   } else {
     travelerPastTrips.forEach(trip => {
       pastTrips.innerHTML +=
       `<article>
-        <img src='${destinations.destinations[trip.destinationID].image}'>
+        <img src='${destinations.destinations[trip.destinationID].image}' alt='${destinations.destinations[trip.destinationID].alt}'/>
         <h3>${destinations.destinations.find(destination => destination.id === trip.destinationID).destination}</h3>
         <p>Travelers: ${trip.travelers}</p>
         <p>Date: ${trip.date}</p>
@@ -50,7 +50,7 @@ const displayTripArticles = (user, destinations) => {
     travelerUpcomingTrips.forEach(trip => {
       upcomingTrips.innerHTML +=
       `<article>
-        <img src='${destinations.destinations[trip.destinationID].image}'>
+        <img src='${destinations.destinations[trip.destinationID].image}' alt='${destinations.destinations[trip.destinationID].alt}'/>
         <h3>${destinations.destinations.find(destination => destination.id === trip.destinationID).destination}</h3>
         <p>Travelers: ${trip.travelers}</p>
         <p>Date: ${trip.date}</p>
@@ -65,7 +65,7 @@ const displayTripArticles = (user, destinations) => {
     travelerPendingTrips.forEach(trip => {
       pendingTrips.innerHTML +=
       `<article>
-        <img src='${destinations.destinations[trip.destinationID].image}'>
+        <img src='${destinations.destinations[trip.destinationID].image}' alt='${destinations.destinations[trip.destinationID].alt}'/>
         <h3>${destinations.destinations.find(destination => destination.id === trip.destinationID).destination}</h3>
         <p>Travelers: ${trip.travelers}</p>
         <p>Date: ${trip.date}</p>
