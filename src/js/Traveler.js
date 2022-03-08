@@ -1,9 +1,9 @@
 class Traveler {
-  constructor(traveler, data) {
+  constructor(traveler, tripData) {
     this.id = traveler.id,
     this.name = traveler.name,
     this.travelerType = traveler.travelerType,
-    this.trips = data.trips.filter(trip => trip.userID === this.id)
+    this.trips = tripData.trips.filter(trip => trip.userID === this.id)
   }
 
   getYearlyAmountSpent(year, repo) {
