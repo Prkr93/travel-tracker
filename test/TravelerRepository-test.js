@@ -11,7 +11,7 @@ describe('TravelerRepository', function() {
   let traveler2;
 
   beforeEach(() => {
-    travelerRepository = new TravelerRepository(travelerTestData);
+    travelerRepository = new TravelerRepository(travelerTestData, tripTestData);
     traveler1 = travelerRepository.travelers[0];
     traveler2 = travelerRepository.travelers[1];
   });
