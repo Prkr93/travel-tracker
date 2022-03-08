@@ -8,9 +8,18 @@ const requestTrip = document.querySelector('#requestTrip');
 const requestSection = document.querySelector('#requestSection');
 const request = document.querySelector('#request');
 
-request.addEventListener('click', () => {
-  requestSection.ariaHidden === 'true' ? requestSection.ariaHidden = 'false' : requestSection.ariaHidden = 'true';
-});
+const toggleRequest = () => {
+  if (request.ariaExpanded === 'false') {
+    request.ariaExpanded = 'true';
+    requestSection.ariaHidden = 'false';
+  } else {
+    request.ariaExpanded = 'false';
+    requestSection.ariaHidden = 'true';
+  }
+}
+
+
+//requestSection.addEventListener();
 
 const updateDom = (user, destinations) => {
   populateDashboard(user, destinations);
@@ -89,7 +98,6 @@ const displayTripArticles = (user, destinations) => {
 
 const populateDestinationList = (destinations) => {
   destinations.destinations.forEach(destination => {
-    console.log(selectDestination)
     selectDestination.innerHTML += `<option value='${destination.destination}'>${destination.destination}</option>`;
   });
 }
@@ -98,6 +106,8 @@ const displayAmountSpentThisYear = (user) => {
   let today = new Date();
   amountSpentLastYear.querySelector('.amount').innerHTML = user.getYearlyAmountSpent(today.getFullYear)
 }
+
+request.onclick = toggleRequest;
 
 export {
   updateDom
