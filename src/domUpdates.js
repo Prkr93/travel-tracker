@@ -40,6 +40,7 @@ const displayTripArticles = (user, destinations) => {
         <p>Date: ${trip.date}</p>
         <p>Duration: ${trip.duration} days</p>
         <p>Status: ${trip.status}</p>
+        <p>Total Cost: $${destinations.getCost(trip.destinationID, trip.duration, trip.travelers)}</p>
       </article>`;
     });
   }
@@ -56,6 +57,7 @@ const displayTripArticles = (user, destinations) => {
         <p>Date: ${trip.date}</p>
         <p>Duration: ${trip.duration} days</p>
         <p>Status: ${trip.status}</p>
+        <p>Total Cost: $${destinations.getCost(trip.destinationID, trip.duration, trip.travelers)}</p>
       </article>`;
     });
   }
@@ -71,6 +73,7 @@ const displayTripArticles = (user, destinations) => {
         <p>Date: ${trip.date}</p>
         <p>Duration: ${trip.duration} days</p>
         <p>Status: ${trip.status}</p>
+        <p>Total Cost: $${destinations.getCost(trip.destinationID, trip.duration, trip.travelers)}</p>
       </article>`;
     });
   }
