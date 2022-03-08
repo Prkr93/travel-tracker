@@ -13,7 +13,7 @@ const fetchData = () => {
 
 
 const loadDashboard = (data) => {
-  const travelers = new TravelerRepository(data);
+  const travelers = new TravelerRepository(data[0], data[1]);
   let currentUser = travelers.travelers[2];
   const destinations = new DestinationRepository(data[2]);
   updateDom(currentUser, destinations);
@@ -71,7 +71,7 @@ const loadDashboard = (data) => {
     let destination = requestedTrip.get('destination');
     let destinationID = getDestinationID(destination, destinations);
     let cost = destinations.getCost(destinationID, duration, numTravelers);
-    estimatedCost.innerHTML = `Your estimated cost is $${cost * 1.1}`;
+    estimatedCost.innerHTML = `Your estimated cost is $${cost}`;
   }
 
   requestSection.onsubmit = sendData;

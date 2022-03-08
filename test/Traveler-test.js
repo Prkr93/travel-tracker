@@ -4,7 +4,7 @@ import Traveler from '../src/js/Traveler';
 import DestinationRepository from '../src/js/DestinationRepository';
 import TravelerRepository from '../src/js/TravelerRepository';
 import travelerTestData from '../src/data/traveler-test-data';
-import tripTestData from '../src/data/traveler-test-data';
+import tripTestData from '../src/data/trip-test-data';
 import destinationTestData from '../src/data/destination-test-data';
 
 
@@ -16,7 +16,7 @@ describe('Traveler', function() {
 
   beforeEach(() => {
     destinationRepository = new DestinationRepository(destinationTestData);
-    travelerRepository = new TravelerRepository(travelerTestData);
+    travelerRepository = new TravelerRepository(travelerTestData, tripTestData);
     traveler1 = travelerRepository.travelers[0];
     traveler2 = travelerRepository.travelers[1];
   });
@@ -53,7 +53,7 @@ describe('Traveler', function() {
   })
 
   it('should be able to return the total $ amount spent on trips', () => {
-    expect(traveler1.getYearlyAmountSpent('2022', destinationRepository)).to.eql(7667);
+    expect(traveler1.getYearlyAmountSpent('2022', destinationRepository)).to.eql(6611);
     expect(traveler2.getYearlyAmountSpent('2022', destinationRepository)).to.eql(9086);
   });
 
