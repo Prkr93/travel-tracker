@@ -3,10 +3,27 @@ const pastTrips = document.querySelector('#pastTrips');
 const upcomingTrips = document.querySelector('#upcomingTrips');
 const pendingTrips = document.querySelector('#pendingTrips');
 const amountSpentLastYear = document.querySelector('#amountSpentLastYear');
+const selectDestination = document.querySelector('#selectDestination');
+const requestTrip = document.querySelector('#requestTrip');
+const requestSection = document.querySelector('#requestSection');
+const request = document.querySelector('#request');
 
+const toggleRequest = () => {
+  if (request.ariaExpanded === 'false') {
+    request.ariaExpanded = 'true';
+    requestSection.ariaHidden = 'false';
+  } else {
+    request.ariaExpanded = 'false';
+    requestSection.ariaHidden = 'true';
+  }
+}
+
+
+//requestSection.addEventListener();
 
 const updateDom = (user, destinations) => {
   populateDashboard(user, destinations);
+  populateDestinationList(destinations);
 }
 
 const populateDashboard = (user, destinations) => {
@@ -79,10 +96,29 @@ const displayTripArticles = (user, destinations) => {
 
 }
 
+const populateDestinationList = (destinations) => {
+  destinations.destinations.forEach(destination => {
+    selectDestination.innerHTML += `<option value='${destination.destination}'>${destination.destination}</option>`;
+  });
+}
+
 const displayAmountSpentThisYear = (user) => {
   let today = new Date();
   amountSpentLastYear.querySelector('.amount').innerHTML = user.getYearlyAmountSpent(today.getFullYear)
 }
+
+// const displayRequestedCost = () => {
+//   // let formInputs = document.querySelectorAll('#requestSection input');
+//   // formInputs.forEach(input => {
+//   //   input.innerHTML === null ? console.log(true) : console.log(false)
+//   // })
+//   //if ()
+//
+// }
+
+request.onclick = toggleRequest;
+// requestSection.onclick = displayRequestedCost;
+// requestSection.addEventListener('keyup', displayRequestedCost);
 
 export {
   updateDom

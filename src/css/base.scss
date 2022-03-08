@@ -4,6 +4,10 @@
 //   background: $primary-background;
 // }
 
+[aria-hidden=true] {
+  display: none;
+}
+
 #pastTrips, #upcomingTrips, #pendingTrips {
   display: flex;
   flex-wrap: wrap;
@@ -20,4 +24,29 @@ article {
     width: 250px;
     height: 150px;
   }
+}
+
+button {
+  margin-bottom: 1em;
+}
+
+form {
+  background-color: lightblue;
+  padding: 1em;
+  margin-bottom: 1em;
+  input {
+    margin-bottom: 1em;
+  }
+  label {
+    display: block;
+    clear: left;
+  }
+}
+
+article, form {
+  box-shadow: 0px 0px 4px 1px black;
+}
+
+#amountSpentLastYear {
+  text-align: center;
 }

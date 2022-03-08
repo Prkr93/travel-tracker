@@ -7,12 +7,27 @@
   <title>Webpack Starter Kit</title>
 </head>
 <body>
-  <!-- <img src="./images/turing-logo.png" alt="turing logo"> -->
   <header>
     <h1>Travel Tracker</h1>
   </header>
   <main>
     <h2>Dashboard</h2>
+    <section id="requestTrip">
+      <button id="request" aria-expanded="false" aria-controls="requestSection" aria-label="Request a Trip">Request A Trip</button>
+      <form id="requestSection" aria-hidden="true">
+        <label for="date">Departure Date</label>
+        <input name="date" type='text' placeholder='yyyy/mm/dd' required>
+        <label for="duration">Duration</label>
+        <input name="duration" type='number' required>
+        <label for="numTravelers">Number of Travelers</label>
+        <input name="numTravelers" type="number" required>
+        <label for="destination">Destination</label>
+        <select name="destination" id="selectDestination"></select>
+        <input type="submit">
+      </form>
+      <section id="estimatedCost"></section>
+      <div id='error'></div>
+    </section>
     <section id="myTrips">
       <section>
         <h3>Past Trips</h3>
