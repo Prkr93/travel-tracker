@@ -7,7 +7,7 @@ class Traveler {
   }
 
   getYearlyAmountSpent(year, repo) {
-    let yearlyTrips = this.trips.filter(trip => trip.date.includes(year));
+    let yearlyTrips = this.trips.filter(trip => trip.date.includes(year) && trip.status === 'approved');
     let amountSpentThatYear = yearlyTrips.reduce((sum, trip) => {
       return sum + repo.getCost(trip.destinationID, trip.duration, trip.travelers);
     }, 0);
