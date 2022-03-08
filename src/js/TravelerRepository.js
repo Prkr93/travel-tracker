@@ -1,8 +1,9 @@
 import Traveler from './Traveler';
+import tripTestData from '../data/trip-test-data';
 
 class TravelerRepository {
-  constructor(data) {
-    this.travelers = data.map(traveler => new Traveler(traveler))
+  constructor(travelerData, tripData) {
+    this.travelers = travelerData.travelers.map(traveler => new Traveler(traveler, tripTestData))
   }
 
   getTraveler(id) {

@@ -1,12 +1,9 @@
-import tripTestData from '../data/trip-test-data';
-
-
 class Traveler {
-  constructor(user) {
-    this.id = user.id,
-    this.name = user.name,
-    this.travelerType = user.travelerType,
-    this.trips = tripTestData.filter(trip => trip.userID === this.id)
+  constructor(traveler, data) {
+    this.id = traveler.id,
+    this.name = traveler.name,
+    this.travelerType = traveler.travelerType,
+    this.trips = data.trips.filter(trip => trip.userID === this.id)
   }
 
   getYearlyAmountSpent(year, repo) {

@@ -1,21 +1,24 @@
 import chai from 'chai';
 const expect = chai.expect;
 import Traveler from '../src/js/Traveler';
+import DestinationRepository from '../src/js/DestinationRepository';
+import TravelerRepository from '../src/js/TravelerRepository';
 import travelerTestData from '../src/data/traveler-test-data';
 import tripTestData from '../src/data/traveler-test-data';
-import DestinationRepository from '../src/js/DestinationRepository';
 import destinationTestData from '../src/data/destination-test-data';
 
 
 describe('Traveler', function() {
+  let destinationRepository;
+  let travelerRepository;
   let traveler1;
   let traveler2;
-  let destinationRepository;
 
   beforeEach(() => {
     destinationRepository = new DestinationRepository(destinationTestData);
-    traveler1 = new Traveler(travelerTestData[0]);
-    traveler2 = new Traveler(travelerTestData[1]);
+    travelerRepository = new TravelerRepository(travelerTestData, tripTestData);
+    traveler1 = travelerRepository.travelers[0];
+    traveler2 = travelerRepository.travelers[1];
   });
 
   it('should be a function', () => {
