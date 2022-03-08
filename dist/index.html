@@ -8,7 +8,7 @@
 </head>
 <body>
   <header>
-    <h1>Travel Tracker</h1>
+    <h1 tabindex="0">Travel Tracker</h1>
   </header>
   <main>
     <h2>Dashboard</h2>
@@ -16,32 +16,32 @@
       <button id="request" aria-expanded="false" aria-controls="requestSection" aria-label="Request a Trip">Request A Trip</button>
       <form id="requestSection" aria-hidden="true">
         <label for="date">Departure Date</label>
-        <input name="date" type='text' placeholder='yyyy/mm/dd' required>
+        <input aria-label="year/month/day - ie 2022/03/20"name="date" type='text' placeholder='yyyy/mm/dd' required>
         <label for="duration">Duration</label>
-        <input name="duration" type='number' required>
+        <input aria-label="duration of trip" name="duration" type='number' required>
         <label for="numTravelers">Number of Travelers</label>
-        <input name="numTravelers" type="number" required>
+        <input aria-label="number of travelers" name="numTravelers" type="number" required>
         <label for="destination">Destination</label>
-        <select name="destination" id="selectDestination"></select>
+        <select aria-label="select your destination" name="destination" id="selectDestination"></select>
         <input type="submit">
       </form>
-      <section id="estimatedCost"></section>
+      <section id="estimatedCost" tabindex="1"></section>
       <div id='error'></div>
     </section>
     <section id="myTrips">
       <section>
-        <h3>Past Trips</h3>
+        <h3 tabindex="0">Past Trips</h3>
         <section id="pastTrips"></section>
       </section>
       <section>
-        <h3>Upcoming Trips</h3>
+        <h3 tabindex="0">Upcoming Trips</h3>
         <section id="upcomingTrips"></section>
       </section>
       <section>
-        <h3>Pending Trips</h3>
+        <h3 tabindex="0">Pending Trips</h3>
         <section id="pendingTrips"></section>
       </section>
-      <article id="amountSpentLastYear">You've spent $<span class="amount"></span> this year.</article>
+      <article id="amountSpentLastYear" tabindex="0">You've spent $<span class="amount"></span> this year.</article>
     </section>
   </main>
   <footer></footer>
