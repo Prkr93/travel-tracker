@@ -4,6 +4,10 @@
 //   background: $primary-background;
 // }
 
+[aria-hidden=true] {
+  display: none;
+}
+
 #pastTrips, #upcomingTrips, #pendingTrips {
   display: flex;
   flex-wrap: wrap;

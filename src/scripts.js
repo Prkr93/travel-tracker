@@ -11,7 +11,6 @@ const fetchData = () => {
   });
 }
 
-
 const loadDashboard = (data) => {
   const travelers = new TravelerRepository(data);
   let currentUser = travelers.travelers[2];
