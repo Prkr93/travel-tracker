@@ -53,7 +53,7 @@ describe('Traveler', function() {
   })
 
   it('should be able to return the total $ amount spent on trips', () => {
-    expect(traveler1.getYearlyAmountSpent('2022', destinationRepository)).to.eql(7667);
+    expect(traveler1.getYearlyAmountSpent('2022', destinationRepository)).to.eql(6611);
     expect(traveler2.getYearlyAmountSpent('2022', destinationRepository)).to.eql(9086);
   });
 
