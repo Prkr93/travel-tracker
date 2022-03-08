@@ -107,8 +107,18 @@ const displayAmountSpentThisYear = (user) => {
   amountSpentLastYear.querySelector('.amount').innerHTML = user.getYearlyAmountSpent(today.getFullYear)
 }
 
-request.onclick = toggleRequest;
+// const displayRequestedCost = () => {
+//   // let formInputs = document.querySelectorAll('#requestSection input');
+//   // formInputs.forEach(input => {
+//   //   input.innerHTML === null ? console.log(true) : console.log(false)
+//   // })
+//   //if ()
+//
+// }
 
+request.onclick = toggleRequest;
+// requestSection.onclick = displayRequestedCost;
+// requestSection.addEventListener('keyup', displayRequestedCost);
 
 export {
   updateDom

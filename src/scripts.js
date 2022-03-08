@@ -12,9 +12,6 @@ const fetchData = () => {
 }
 
 
-
-
-
 const loadDashboard = (data) => {
   const travelers = new TravelerRepository(data);
   let currentUser = travelers.travelers[2];
@@ -32,9 +29,8 @@ const loadDashboard = (data) => {
         }
       });
     });
-    let destinationName = formData.get('destination');
-    let requestedDestination = destinations.destinations.find(destination => destination.destination === destinationName)
-    let requestedDestinationID = requestedDestination.id;
+    let destination = formData.get('destination');
+    let requestedDestinationID = getDestinationID(destination, destinations);
     const newTripRequest = {
       id: nextID,
       userID: currentUser.id,
@@ -50,7 +46,44 @@ const loadDashboard = (data) => {
     requestTrip(newTripRequest);
     e.target.reset();
   }
+
+  const displayRequestedCost = (e) => {
+    let inputs = e.target.closest('#requestSection').querySelectorAll('input');
+    let formFilled = true;
+    inputs.forEach(input => {
+      if (input.type !== 'submit') {
+        if (input.value === '') {
+          formFilled = false;
+        } else {
+          formFilled = true;
+        }
+      }
+    });
+    if (formFilled) {
+      calculateCost();
+    }
+  }
+
+  const calculateCost = () => {
+    let requestedTrip = new FormData(requestSection);
+    let numTravelers = requestedTrip.get('numTravelers');
+    let duration = requestedTrip.get('duration');
+    let destination = requestedTrip.get('destination');
+    let destinationID = getDestinationID(destination, destinations);
+    let cost = destinations.getCost(destinationID, duration, numTravelers);
+    estimatedCost.innerHTML = `Your estimated cost is $${cost * 1.1}`;
+  }
+
   requestSection.onsubmit = sendData;
+  requestSection.onclick = displayRequestedCost;
 }
+
+const getDestinationID = (destination, destinations) => {
+  let destinationName = destination;
+  let requestedDestination = destinations.destinations.find(destination => destination.destination === destinationName)
+  let requestedDestinationID = requestedDestination.id;
+  return requestedDestinationID;
+}
+
 
 window.onload = fetchData;
