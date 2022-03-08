@@ -109,6 +109,7 @@ const displayAmountSpentThisYear = (user) => {
 
 request.onclick = toggleRequest;
 
+
 export {
   updateDom
 }

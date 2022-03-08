@@ -15,16 +15,18 @@
     <h2>Dashboard</h2>
     <section id="requestTrip">
       <button id="request" aria-expanded="false" aria-controls="requestSection" aria-label="Request a Trip">Request A Trip</button>
-      <article id="requestSection" aria-hidden="true">
+      <form id="requestSection" aria-hidden="true">
         <label for="date">Departure Date</label>
-        <input name="date" type='text' placeholder='yyyy/mm/dd'>
+        <input name="date" type='text' placeholder='yyyy/mm/dd' required>
         <label for="duration">Duration</label>
-        <input name="duration" type=''></input>
-        <label>Number of Travelers</label>
-        <input type='number'>
-        <label>Destination</label>
-        <select id="selectDestination"></select>
-      </article>
+        <input name="duration" type='number' required>
+        <label for="numTravelers">Number of Travelers</label>
+        <input name="numTravelers" type="number" required>
+        <label for="destination">Destination</label>
+        <select name="destination" id="selectDestination"></select>
+        <input type="submit">
+      </form>
+      <div id='error'></div>
     </section>
     <section id="myTrips">
       <section>
