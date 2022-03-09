@@ -4,17 +4,18 @@ import { updateDom } from './domUpdates';
 import Traveler from './js/Traveler';
 import TravelerRepository from './js/TravelerRepository';
 import DestinationRepository from './js/DestinationRepository';
+const main = document.querySelector('main');
 
-const fetchData = () => {
+const fetchData = (id) => {
   Promise.all([travelersData, tripData, destinationData]).then(data => {
-    loadDashboard(data);
+    loadDashboard(data, id);
   });
 }
 
 
-const loadDashboard = (data) => {
+const loadDashboard = (data, id) => {
   const travelers = new TravelerRepository(data[0], data[1]);
-  let currentUser = travelers.travelers[2];
+  let currentUser = travelers.travelers[id - 1];
   const destinations = new DestinationRepository(data[2]);
   updateDom(currentUser, destinations);
 
@@ -45,6 +46,7 @@ const loadDashboard = (data) => {
     updateDom(currentUser, destinations);
     requestTrip(newTripRequest);
     e.target.reset();
+    estimatedCost.innerHTML = '';
   }
 
   const displayRequestedCost = (e) => {
@@ -75,6 +77,7 @@ const loadDashboard = (data) => {
   }
 
   requestSection.onsubmit = sendData;
+  requestSection.onkeyup = displayRequestedCost;
   requestSection.onclick = displayRequestedCost;
 }
 
@@ -85,5 +88,16 @@ const getDestinationID = (destination, destinations) => {
   return requestedDestinationID;
 }
 
+const attemptLogin = (e) => {
+  e.preventDefault();
+  let name = username.value.slice(0, 8);
+  let id = username.value.slice(8);
+  if (name === 'traveler' && password.value === 'travel' && id <= 50 && id > 0) {
+    login.ariaHidden = 'true';
+    fetchData(id);
+    main.ariaHidden = 'false';
+  }
+}
 
-window.onload = fetchData;
+submitLogin.onclick = attemptLogin;
+// window.onload = fetchData;

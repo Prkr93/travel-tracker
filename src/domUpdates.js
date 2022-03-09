@@ -7,6 +7,8 @@ const selectDestination = document.querySelector('#selectDestination');
 const requestTrip = document.querySelector('#requestTrip');
 const requestSection = document.querySelector('#requestSection');
 const request = document.querySelector('#request');
+const userName = document.querySelector('#userName');
+
 
 const toggleRequest = () => {
   if (request.ariaExpanded === 'false') {
@@ -18,17 +20,19 @@ const toggleRequest = () => {
   }
 }
 
-
-//requestSection.addEventListener();
+const welcomeUser = (user) => {
+  userName.innerHTML = user.name;
+}
 
 const updateDom = (user, destinations) => {
+  welcomeUser(user);
   populateDashboard(user, destinations);
   populateDestinationList(destinations);
 }
 
 const populateDashboard = (user, destinations) => {
   displayTripArticles(user, destinations);
-  displayAmountSpentThisYear(user);
+  displayAmountSpentThisYear(user, destinations);
 }
 
 const displayTripArticles = (user, destinations) => {
@@ -46,7 +50,7 @@ const displayTripArticles = (user, destinations) => {
   let travelerPendingTrips = user.trips.filter(trip => trip.date >= today && trip.status === 'pending');
 
   if (!travelerPastTrips.length) {
-    pastTrips.innerHTML += '<article>You don\'t have any past trips yet!</article>';
+    pastTrips.innerHTML += '<article class="no-trip">You don\'t have any past trips yet!</article>';
   } else {
     travelerPastTrips.forEach(trip => {
       pastTrips.innerHTML +=
@@ -62,7 +66,7 @@ const displayTripArticles = (user, destinations) => {
     });
   }
   if (!travelerUpcomingTrips.length) {
-    upcomingTrips.innerHTML += '<article>You don\'t have any upcoming trips at this time.</article>';
+    upcomingTrips.innerHTML += '<article class="no-trip">You don\'t have any upcoming trips at this time.</article>';
   } else {
     travelerUpcomingTrips.forEach(trip => {
       upcomingTrips.innerHTML +=
@@ -78,7 +82,7 @@ const displayTripArticles = (user, destinations) => {
     });
   }
   if (!travelerPendingTrips.length) {
-    pendingTrips.innerHTML += '<article>You do not have any pending trips at this time.</article>';
+    pendingTrips.innerHTML += '<article class="no-trip">You do not have any pending trips at this time.</article>';
   } else {
     travelerPendingTrips.forEach(trip => {
       pendingTrips.innerHTML +=
@@ -102,23 +106,12 @@ const populateDestinationList = (destinations) => {
   });
 }
 
-const displayAmountSpentThisYear = (user) => {
+const displayAmountSpentThisYear = (user, destinations) => {
   let today = new Date();
-  amountSpentLastYear.querySelector('.amount').innerHTML = user.getYearlyAmountSpent(today.getFullYear)
+  amountSpentLastYear.querySelector('.amount').innerHTML = user.getYearlyAmountSpent(today.getFullYear(), destinations);
 }
 
-// const displayRequestedCost = () => {
-//   // let formInputs = document.querySelectorAll('#requestSection input');
-//   // formInputs.forEach(input => {
-//   //   input.innerHTML === null ? console.log(true) : console.log(false)
-//   // })
-//   //if ()
-//
-// }
-
 request.onclick = toggleRequest;
-// requestSection.onclick = displayRequestedCost;
-// requestSection.addEventListener('keyup', displayRequestedCost);
 
 export {
   updateDom
