@@ -21,7 +21,7 @@ Then cd into the new directory and run:
 npm start
 ```
 
-You can then view the live version here: https://github.com/Prkr93/travel-tracker
+You can then view the live version here: https://prkr93.github.io/travel-tracker/
 
 ## Running Tests
 To run the tests, clone down this repo, then install the library dependencies using `npm install`. After, you can run the tests with `npm test`, which will output to the terminal.
