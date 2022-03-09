@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webpack Starter Kit</title>
+</head>
+<body>
+  <header>
+    <h1 tabindex="0">Travel Tracker</h1>
+    <h2>Welcome <span id="userName">to...</span></h2>
+  </header>
+  <section id="login">
+    <form class="login-wrapper">
+      <label for="username">Username</label>
+      <input id="username" name="username" aria-label="username" placeholder="username">
+      <label for="password">Password</label>
+      <input id="password" name="password" aria-label="password" placeholder="password">
+      <button id="submitLogin">Login</button>
+    </form>
+  </section>
+  <main aria-hidden='true'>
+    <h2>Dashboard</h2>
+    <section id="requestTrip">
+      <button id="request" aria-expanded="false" aria-controls="requestSection" aria-label="Request a Trip">Request A Trip</button>
+      <form id="requestSection" aria-hidden="true">
+        <label for="date">Departure Date</label>
+        <input aria-label="year/month/day - ie 2022/03/20"name="date" type='text' placeholder='yyyy/mm/dd' required>
+        <label for="duration">Duration</label>
+        <input aria-label="duration of trip" name="duration" type='number' required>
+        <label for="numTravelers">Number of Travelers</label>
+        <input aria-label="number of travelers" name="numTravelers" type="number" required>
+        <label for="destination">Destination</label>
+        <select aria-label="select your destination" name="destination" id="selectDestination"></select>
+        <input type="submit">
+      </form>
+      <section id="estimatedCost" tabindex="0"></section>
+      <div id='error'></div>
+    </section>
+    <section id="myTrips">
+      <section>
+        <h3 tabindex="0">Past Trips</h3>
+        <section id="pastTrips"></section>
+      </section>
+      <section>
+        <h3 tabindex="0">Upcoming Trips</h3>
+        <section id="upcomingTrips"></section>
+      </section>
+      <section>
+        <h3 tabindex="0">Pending Trips</h3>
+        <section id="pendingTrips"></section>
+      </section>
+      <article id="amountSpentLastYear" tabindex="0">You've spent $<span class="amount"></span> this year.</article>
+    </section>
+  </main>
+  <footer></footer>
+
+  <script src="bundle.js"></script>
+</body>
+</html>
