@@ -46,6 +46,7 @@ const loadDashboard = (data, id) => {
     updateDom(currentUser, destinations);
     requestTrip(newTripRequest);
     e.target.reset();
+    estimatedCost.innerHTML = '';
   }
 
   const displayRequestedCost = (e) => {
@@ -76,6 +77,7 @@ const loadDashboard = (data, id) => {
   }
 
   requestSection.onsubmit = sendData;
+  requestSection.onkeyup = displayRequestedCost;
   requestSection.onclick = displayRequestedCost;
 }
 
