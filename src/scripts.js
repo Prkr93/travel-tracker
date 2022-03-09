@@ -96,6 +96,8 @@ const attemptLogin = (e) => {
     login.ariaHidden = 'true';
     fetchData(id);
     main.ariaHidden = 'false';
+  } else {
+    loginError.innerHTML = 'Please enter a valid username/password.';
   }
 }
 
