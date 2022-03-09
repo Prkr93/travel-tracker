@@ -8,6 +8,7 @@ const requestTrip = document.querySelector('#requestTrip');
 const requestSection = document.querySelector('#requestSection');
 const request = document.querySelector('#request');
 
+
 const toggleRequest = () => {
   if (request.ariaExpanded === 'false') {
     request.ariaExpanded = 'true';
@@ -18,8 +19,6 @@ const toggleRequest = () => {
   }
 }
 
-
-//requestSection.addEventListener();
 
 const updateDom = (user, destinations) => {
   populateDashboard(user, destinations);
@@ -107,18 +106,7 @@ const displayAmountSpentThisYear = (user) => {
   amountSpentLastYear.querySelector('.amount').innerHTML = user.getYearlyAmountSpent(today.getFullYear)
 }
 
-// const displayRequestedCost = () => {
-//   // let formInputs = document.querySelectorAll('#requestSection input');
-//   // formInputs.forEach(input => {
-//   //   input.innerHTML === null ? console.log(true) : console.log(false)
-//   // })
-//   //if ()
-//
-// }
-
 request.onclick = toggleRequest;
-// requestSection.onclick = displayRequestedCost;
-// requestSection.addEventListener('keyup', displayRequestedCost);
 
 export {
   updateDom

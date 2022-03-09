@@ -17,6 +17,7 @@
 article {
   background-color: lightblue;
   margin-bottom: 1em;
+  width: 250px;
   h3, p {
     padding: 0 1em;
   }
@@ -49,4 +50,5 @@ article, form {
 
 #amountSpentLastYear {
   text-align: center;
+  margin: 1em auto;
 }

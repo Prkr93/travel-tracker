@@ -10,7 +10,16 @@
   <header>
     <h1 tabindex="0">Travel Tracker</h1>
   </header>
-  <main>
+  <section id="login">
+    <div class="login-wrapper">
+      <label for="username">Username</label>
+      <input id="username" name="username" aria-label="username" placeholder="username">
+      <label for="password">Password</label>
+      <input id="password" name="password" aria-label="password" placeholder="password">
+      <button id="submitLogin">Login</button>
+    </div>
+  </section>
+  <main aria-hidden='true'>
     <h2>Dashboard</h2>
     <section id="requestTrip">
       <button id="request" aria-expanded="false" aria-controls="requestSection" aria-label="Request a Trip">Request A Trip</button>
