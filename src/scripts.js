@@ -88,7 +88,8 @@ const getDestinationID = (destination, destinations) => {
   return requestedDestinationID;
 }
 
-const attemptLogin = () => {
+const attemptLogin = (e) => {
+  e.preventDefault();
   let name = username.value.slice(0, 8);
   let id = username.value.slice(8);
   if (name === 'traveler' && password.value === 'travel' && id <= 50 && id > 0) {

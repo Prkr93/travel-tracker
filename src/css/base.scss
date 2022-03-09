@@ -21,6 +21,20 @@ article {
   }
 }
 
+h1 {
+  float: right;
+  padding-left: 1em;
+}
+
+h2 {
+  margin-top: 2em;
+}
+
+#request {
+  margin: 1em auto;
+  display: block;
+}
+
 button {
   margin-bottom: 1em;
 }
@@ -45,4 +59,20 @@ article, form {
 #amountSpentLastYear {
   text-align: center;
   margin: 1em auto;
+}
+
+.login-wrapper {
+  max-width: 150px;
+  margin: 8em auto;
+  input {
+    margin-bottom: 1em;
+  }
+  label {
+    clear: left;
+    display: block;
+  }
+  > * {
+    margin: auto;
+    display: block;
+  }
 }
