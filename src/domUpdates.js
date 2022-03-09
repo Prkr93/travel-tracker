@@ -32,7 +32,7 @@ const updateDom = (user, destinations) => {
 
 const populateDashboard = (user, destinations) => {
   displayTripArticles(user, destinations);
-  displayAmountSpentThisYear(user);
+  displayAmountSpentThisYear(user, destinations);
 }
 
 const displayTripArticles = (user, destinations) => {
@@ -106,9 +106,9 @@ const populateDestinationList = (destinations) => {
   });
 }
 
-const displayAmountSpentThisYear = (user) => {
+const displayAmountSpentThisYear = (user, destinations) => {
   let today = new Date();
-  amountSpentLastYear.querySelector('.amount').innerHTML = user.getYearlyAmountSpent(today.getFullYear)
+  amountSpentLastYear.querySelector('.amount').innerHTML = user.getYearlyAmountSpent(today.getFullYear(), destinations);
 }
 
 request.onclick = toggleRequest;
