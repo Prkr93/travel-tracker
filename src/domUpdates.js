@@ -50,7 +50,7 @@ const displayTripArticles = (user, destinations) => {
   let travelerPendingTrips = user.trips.filter(trip => trip.date >= today && trip.status === 'pending');
 
   if (!travelerPastTrips.length) {
-    pastTrips.innerHTML += '<article>You don\'t have any past trips yet!</article>';
+    pastTrips.innerHTML += '<article class="no-trip">You don\'t have any past trips yet!</article>';
   } else {
     travelerPastTrips.forEach(trip => {
       pastTrips.innerHTML +=
@@ -66,7 +66,7 @@ const displayTripArticles = (user, destinations) => {
     });
   }
   if (!travelerUpcomingTrips.length) {
-    upcomingTrips.innerHTML += '<article>You don\'t have any upcoming trips at this time.</article>';
+    upcomingTrips.innerHTML += '<article class="no-trip">You don\'t have any upcoming trips at this time.</article>';
   } else {
     travelerUpcomingTrips.forEach(trip => {
       upcomingTrips.innerHTML +=
@@ -82,7 +82,7 @@ const displayTripArticles = (user, destinations) => {
     });
   }
   if (!travelerPendingTrips.length) {
-    pendingTrips.innerHTML += '<article>You do not have any pending trips at this time.</article>';
+    pendingTrips.innerHTML += '<article class="no-trip">You do not have any pending trips at this time.</article>';
   } else {
     travelerPendingTrips.forEach(trip => {
       pendingTrips.innerHTML +=
