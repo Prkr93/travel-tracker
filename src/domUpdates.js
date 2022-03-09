@@ -7,6 +7,7 @@ const selectDestination = document.querySelector('#selectDestination');
 const requestTrip = document.querySelector('#requestTrip');
 const requestSection = document.querySelector('#requestSection');
 const request = document.querySelector('#request');
+const userName = document.querySelector('#userName');
 
 
 const toggleRequest = () => {
@@ -19,8 +20,12 @@ const toggleRequest = () => {
   }
 }
 
+const welcomeUser = (user) => {
+  userName.innerHTML = user.name;
+}
 
 const updateDom = (user, destinations) => {
+  welcomeUser(user);
   populateDashboard(user, destinations);
   populateDestinationList(destinations);
 }
